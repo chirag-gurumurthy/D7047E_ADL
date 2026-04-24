@@ -53,7 +53,7 @@ class Generator(nn.Module):
     def forward(self, z, y):
         zy = torch.cat([z,y], dim=1)
         h = F.relu(self.fc1(zy))
-        out = torch.sigmoid(self.fc2(h))
+        out = self.fc2(h)
         return out
 
 # Discriminator
@@ -215,7 +215,7 @@ D_solver = optim.Adam(D.parameters(), lr=lr, betas=(0.5, 0.999))
 
 # Loss function
 #def my_bce_loss(preds, targets):
-#   return F.binary_cross_entropy(preds, targets)
+#  return F.binary_cross_entropy(preds, targets)
 
 loss_fn = nn.BCEWithLogitsLoss()
 #loss_fn = my_bce_loss
@@ -291,7 +291,7 @@ with torch.no_grad():
             ax.set_xticklabels([])
             ax.set_yticklabels([])
             ax.set_aspect('equal')
-            plt.imshow(sample.reshape(28,28), cmap='Grey_r')
+            plt.imshow(sample.reshape(28,28), cmap='Greys_r')
         
         print(f'Generated 10 samples of digit {digit}')
 
