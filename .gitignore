@@ -1,0 +1,35 @@
+# secrets
+.env
+
+# data & model artifacts
+dataset/*
+!dataset/custom*/
+checkpoints/
+*.tar.gz
+*.tgz
+
+# python cache
+__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# jupyter
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+
+# images (generated outputs)
+*.png
+
+# virtual environments
+.venv/
+venv/
+env/
+
+# wandb
+wandb/
+
+# OS
+.DS_Store
