@@ -4,6 +4,7 @@
 # data & model artifacts
 dataset/*
 !dataset/custom*/
+!dataset/custom*/**
 checkpoints/
 *.tar.gz
 *.tgz
@@ -20,8 +21,10 @@ __pycache__/
 .ipynb_checkpoints/
 **/.ipynb_checkpoints/
 
-# images (generated outputs)
-*.png
+# generated plot outputs (top-level only)
+project_v5/*.png
+project_v5/binary/*.png
+project_v5/multiclass/*.png
 
 # virtual environments
 .venv/
