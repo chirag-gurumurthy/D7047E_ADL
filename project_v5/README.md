@@ -110,6 +110,19 @@ https://github.com/chirag-gurumurthy/D7047E_ADL/tree/project
 
 ---
 
+## Observations & Findings
+
+### Domain Shift — SimpleCNN Multiclass (2026-05-14)
+- IAM test Macro-F1: **0.90** vs Custom-50 Macro-F1: **0.46** → gap of ~0.44
+- Likely cause: IAM crossouts are clean digital-style scans; custom_50 are real photos with variable lighting, perspective, blur, and shadows
+- Model learned features specific to the IAM domain and does not generalise to real-world capture conditions
+- Potential fixes (not yet tried):
+  - Stronger training augmentation: `RandomPerspective`, `GaussianBlur`, `ColorJitter`
+  - Few-shot fine-tuning on a small number of custom_50 samples
+  - Adding custom_50 images to the training mix
+
+---
+
 ## Design Decisions Log
 
 | Decision | Choice | Reason |
