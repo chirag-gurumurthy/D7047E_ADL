@@ -396,14 +396,22 @@ def rebuild_binary_model(model_name):
 
 
 def log_confusion_matrix(preds, labels, class_names, model_name, wandb_project, wandb_group):
-    """Log confusion matrix to WandB using native wandb.plot."""
+    """Log confusion matrix to WandB as a matplotlib heatmap image."""
+    import matplotlib.pyplot as plt
+    from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
+    import numpy as np
+
+    cm = confusion_matrix(labels, preds)
+    fig, ax = plt.subplots(figsize=(max(6, len(class_names) * 1.2), max(5, len(class_names))))
+    ConfusionMatrixDisplay(cm, display_labels=class_names).plot(
+        ax=ax, xticks_rotation=45, colorbar=False, cmap='Blues')
+    ax.set_title(f'Confusion Matrix — {model_name}')
+    plt.tight_layout()
+
     run = wandb.init(
         project=wandb_project, group=wandb_group,
         name=f'{model_name}-confusion-matrix', reinit=True,
     )
-    wandb.log({
-        'confusion_matrix': wandb.plot.confusion_matrix(
-            preds=preds, y_true=labels, class_names=class_names,
-        )
-    })
+    wandb.log({'confusion_matrix': wandb.Image(fig)})
+    plt.close(fig)
     run.finish()
