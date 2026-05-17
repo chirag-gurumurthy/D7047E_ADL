@@ -1,0 +1,38 @@
+{
+  "SimpleCNN": {
+    "train_acc": 0.9795681674549104,
+    "val_acc": 0.9757022533844864,
+    "best_val_loss": 0.07971648643850497,
+    "epochs": 50,
+    "iam_test_f1": 0.990776877761414,
+    "custom50_f1": 0.9320388349514565,
+    "generalisation_gap": 0.058738042809957536
+  },
+  "ResNet-50": {
+    "train_acc": 0.974813240642355,
+    "val_acc": 0.9657068101306756,
+    "best_val_loss": 0.09116891509906844,
+    "epochs": 50,
+    "iam_test_f1": 0.9859489253609874,
+    "custom50_f1": 0.9347826086956522,
+    "generalisation_gap": 0.05116631666533522
+  },
+  "EfficientNet-B0": {
+    "train_acc": 0.9316184113358936,
+    "val_acc": 0.914391968367362,
+    "best_val_loss": 0.13468746461957792,
+    "epochs": 50,
+    "iam_test_f1": 0.9656584422601162,
+    "custom50_f1": 0.898876404494382,
+    "generalisation_gap": 0.06678203776573421
+  },
+  "ViT-B/16": {
+    "train_acc": 0.949860292194188,
+    "val_acc": 0.932986432655701,
+    "best_val_loss": null,
+    "epochs": 40,
+    "iam_test_f1": 0.980899193811252,
+    "custom50_f1": 0.9565217391304348,
+    "generalisation_gap": 0.02437745468081709
+  }
+}

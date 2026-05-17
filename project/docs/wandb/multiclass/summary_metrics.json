@@ -1,0 +1,23 @@
+{
+  "ResNet-50": {
+    "val_acc": 0.8942,
+    "best_val_loss": 0.261,
+    "epochs": 43,
+    "test_accuracy": 0.9015,
+    "test_f1": 0.9101,
+    "test_precision": 0.935,
+    "test_recall": 0.9015,
+    "custom50_f1": null
+  },
+  "SimpleCNN": {
+    "val_accuracy": 0.8957,
+    "test_accuracy": 0.9042,
+    "macro_f1": 0.913,
+    "macro_precision": 0.9399,
+    "macro_recall": 0.9042,
+    "best_val_loss": 0.2566,
+    "epochs_trained": 77,
+    "lr": 0.0001,
+    "batch_size": 128
+  }
+}
